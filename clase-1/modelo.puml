@@ -1,0 +1,16 @@
+@startuml
+class Program {
+    - {static} Main(args:string[]) : void
+}
+
+class Pocion {
+    - color : ConsoleColor
+    - calidad : int
+    - dosis : int
+    + Consumir (cantidad : int) : void
+    + Mostrar() : void
+}
+
+Program ..> Pocion
+@enduml
+
