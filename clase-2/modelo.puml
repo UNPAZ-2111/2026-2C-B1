@@ -1,0 +1,32 @@
+@startuml
+class Program {
+    - {static} Main(args:string[]) : void
+}
+
+class Contenedor {
+    - capacidad : int
+    - cantidadItems : int
+    - clave : string
+    - abierto : bool
+    + Contenedor()
+    + Contenedor(capacidad : int, clave : string)
+    + setCapacidad(capacidad : int)
+    + setClave(clave : string)
+    + Abrir(string clave) : void
+    + Abrir(Tarjeta unaTarjeta) : void
+    + Mostrar() : void
+}
+
+class Tarjeta {
+    - clave : string
+    + Tarjeta(clave : string)
+    + setClave(clave : string)
+    + getClave() : string
+}
+
+Program ..> Contenedor
+Program ..> Tarjeta
+Contenedor - Tarjeta
+
+@enduml
+
