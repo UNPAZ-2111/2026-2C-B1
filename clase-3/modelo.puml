@@ -1,0 +1,26 @@
+@startuml
+class Program {
+    - {static} Main(args:string[]) : void
+}
+
+class Carta {
+    - puntosVida : int
+    - puntosAtaque : int
+    - puntosDefensa : int
+    - cartaRival : Carta
+
+    + Carta(puntosVida : int, puntosAtaque : int, puntosDefensa)
+    + getPuntosAtaque() : int
+    + estaActiva() : bool
+    + Atacar() : void
+    + Atacar(unaCarta : Carta) : void
+    + RecibirAtaque(atacante : Carta) : void
+    + Mostrar() : void
+}
+
+Program ..> Carta
+Program ..> Random
+Carta o-- Carta
+
+@enduml
+
