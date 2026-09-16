@@ -1,0 +1,35 @@
+@startuml
+class Program {
+    - {static} Main(args:string[]) : void
+}
+
+abstract class Alma {
+    # x : int
+    # y : int
+    - color : ConsoleColor
+    
+    + Alma(color : ConsoleColor)
+    + getx() : int
+    + gety() : bool
+    + getcolor() : ConsoleColor
+    + irA(x : int, y : int) : void
+    + <<virtual>> Mover() : void
+}
+
+class AlmaRoja {
+   + AlmaRoja()  
+   + <<override>> Mover() : void
+}
+
+class AlmaAzul {
+   + AlmaAzul()  
+   + <<override>> Mover() : void
+}
+
+Program ..> Alma
+Program ..> Random
+Alma <|-- AlmaRoja
+Alma <|-- AlmaAzul
+
+@enduml
+
