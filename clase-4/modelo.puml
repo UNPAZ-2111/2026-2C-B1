@@ -10,7 +10,7 @@ abstract class Alma {
     
     + Alma(color : ConsoleColor)
     + getx() : int
-    + gety() : bool
+    + gety() : int
     + getcolor() : ConsoleColor
     + irA(x : int, y : int) : void
     + <<virtual>> Mover() : void
