@@ -1,0 +1,50 @@
+@startuml
+class Program {
+    - {static} Main(args:string[]) : void
+}
+
+class Juego {
+    - item: Item
+    + juego()
+}
+
+class Personaje {
+    - inventario : Item[]
+    + Personaje()
+    + AgarrarItem(unItem : Item) : bool
+    + Embotellar(unItem : Item) : bool
+    + estaArmada() : bool
+    + Mostrar() : void
+}
+
+class Item {
+    - desripcion : string
+    + Item(descripcion : string)
+    + getDescripcion() : string
+}
+
+class Botella{
+    - pocion : Pocion
+    - agua : Agua
+    + Botella(descripcion : string)
+    + AgregarItem(unItem : Item)
+    + estaLista() : bool
+    + Consumir() : void
+}
+Program ..> Juego
+Juego ..> Item
+Juego ..> Personaje
+
+Personaje "1" -- "0..10" Item
+
+
+Item <|-- Botella
+Item <|-- Pocion
+Item <|-- Agua
+Item <|-- Pistola
+
+Botella o- Pocion
+Botella o- Agua
+
+@enduml
+
