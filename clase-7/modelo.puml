@@ -1,0 +1,40 @@
+@startuml
+
+class Carta{
+    - valor : int
+    - palo : string
+    + Carta(valor : int, palo : string)
+    + getValor() : int
+    + getPalo() : string
+    + getDescripcion() : string
+    + esIgualA(otraCarta : Carta) : bool
+}
+
+class Jugador{
+    - mano
+    + Jugador()
+    + RecibirCarta(unaCarta : Carta) : bool
+    + ManoCompleta() : bool
+    + Mostrar() : void
+}
+
+class Mazo{
+    - cartas
+    + Mazo() 
+    + Generar() : void
+    - Generar12Cartas() : void
+    + CantidadCartas() : int
+    + QuitarCartaAlAzar() : Carta
+    + Mostrar() : void
+}
+
+Program ..> Jugador
+Program ..> Mazo
+Mazo --> "<Carta> cartas" "List"
+Mazo *- Random
+Mazo - Carta
+Jugador --> "<Carta> miMano" "List"
+Jugador - Carta
+
+
+@enduml

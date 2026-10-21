@@ -10,7 +10,7 @@
     static void Main()
     {
         //Carta carta1 = new Carta(1, "Bastos");
-        //Console.WriteLine(carta1.getDescripcion());
+        //Console.WriteLine(carta1.Descripcion());
 
         Mazo mazo = new Mazo();
         //mazo.AgregarCarta(carta1);
@@ -19,7 +19,7 @@
         //mazo.Mostrar();
         //Carta miCarta = mazo.QuitarCartaAlAzar();
         
-        //Console.WriteLine($"Me tocó el {miCarta.getDescripcion()}");
+        //Console.WriteLine($"Me tocó el {miCarta.Descripcion()}");
         //mazo.Mostrar();
         /*
         Jugador rene = new Jugador();
@@ -62,7 +62,7 @@ class Jugador
     public void MostrarMano()
     {
         foreach (Carta estaCarta in mano)
-            Console.WriteLine($"{estaCarta.getDescripcion()}");
+            Console.WriteLine($"{estaCarta.Descripcion()}");
     }
 }
 class Mazo
@@ -123,12 +123,12 @@ class Mazo
     public void Mostrar()
     {
         //for (int i = 0; i < CantidadCartas(); i++)
-        //    Console.WriteLine($"{cartas[i].getDescripcion()}");
+        //    Console.WriteLine($"{cartas[i].Descripcion()}");
     
         // Alternativa utilizando iteradores
         foreach (Carta estaCarta in cartas)
         {
-            Console.WriteLine($"{estaCarta.getDescripcion()}");
+            Console.WriteLine($"{estaCarta.Descripcion()}");
         }
     }
 }
@@ -142,7 +142,9 @@ class Carta
         this.valor = valor;
         this.palo = palo;
     } 
-    public string getDescripcion()
+    public int getValor()   { return valor; }  // Podríamos utilziar propiedades
+    public string getPalo() { return palo; }
+    public string Descripcion()
     {
         return $"{valor} de {palo}";
     }
@@ -150,6 +152,5 @@ class Carta
     {
         return valor == otraCarta.getValor() && palo == otraCarta.getPalo();
     }
-    public int getValor() { return valor; }
-    public string getPalo() {return palo; }
+    
 }
